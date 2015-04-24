@@ -1,65 +1,160 @@
 <!DOCTYPE html>
 <html>
-
-  {% include head.html %}
-
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="{{ site.baseurl }}/css/skin.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title> {{ page.title }} </title>
+  </head>
   <body>
 
-    {% include header.html %}
-
-    <div class="container">
-      <div class="blog-header">
-             <h1 class="blog-title">{{page.title}}</h1>
-             <p class="lead blog-description"></p>
-       </div>
-
-      <div class="row">
-        <div class="col-sm-8 blog-main">
-
-              {{ content }}
-
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-         <div class="sidebar-module sidebar-module-inset">
-           <h4>About</h4>
-           <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-         </div>
-         <div class="sidebar-module">
-           <h4>Archives</h4>
-           <ol class="list-unstyled">
-             <li><a href="#">March 2014</a></li>
-             <li><a href="#">February 2014</a></li>
-             <li><a href="#">January 2014</a></li>
-             <li><a href="#">December 2013</a></li>
-             <li><a href="#">November 2013</a></li>
-             <li><a href="#">October 2013</a></li>
-             <li><a href="#">September 2013</a></li>
-             <li><a href="#">August 2013</a></li>
-             <li><a href="#">July 2013</a></li>
-             <li><a href="#">June 2013</a></li>
-             <li><a href="#">May 2013</a></li>
-             <li><a href="#">April 2013</a></li>
-           </ol>
-         </div>
-         <div class="sidebar-module">
-           <h4>Elsewhere</h4>
-           <ol class="list-unstyled">
-             <li><a href="#">GitHub</a></li>
-             <li><a href="#">Twitter</a></li>
-             <li><a href="#">Facebook</a></li>
-           </ol>
-         </div>
-       </div>
-
-
-      </div>
-
-      {% include footer.html %}
-
-
+		<div class="body">
+			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="under2"><img alt="" class="img-responsive hidden-xs hidden-sm" src="{{ site.baseurl }}/images/Brookings2.png" style="" usemap="#BrookingsMap"/></div>
+				<div class="over">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+							<a class="DeptTitleMobile hidden-md hidden-lg" href="/">Department of Pediatrics</a>
+							<a class="DeptTitleNavBar hidden-xs hidden-sm" href="/">Department of Pediatrics</a><br />
+							<a class="" href="http://medicine.wustl.edu/" target="_blank"><img alt="" class="img-responsive hidden-xs" src="{{ site.baseurl }}/images/WUSLTMedLogo3.png" /></a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						  <ul class="nav navbar-nav navbar-right">
+							<li><a href="/">Home</a></li>
+							{% for p in site.pages %}
+							 {% if p.title %}
+							  {% if p.title == page.title %}
+								<li><a href="{{ p.url | prepend: site.baseurl }}" class="active">{{ p.title }}</a></li>
+							  {% else %}
+								<li><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+							  {% endif %}
+							 {% endif %}
+						   {% endfor %}
+							<li class="hidden">
+								<table border="0" cellpadding="0" cellspacing="0" class="SearchTable hidden-xs hidden-sm">
+									<tr>
+									  <td style="" valign="top">
+									  <input type="text" class="pedssearch"></input>
+									  </td>
+									  <td valign="top">
+									  <img ID="TextSearchButton" runat="server" src="{{ site.baseurl}}/images/PedsMagGlass.png" />
+									  </td>
+									</tr>
+								</table>
+							</li>
+							<li><a href="http://www.wustl.edu/" target="_blank">wustl</a></li>
+						  </ul>
+						</div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</div>
+			</nav>
+			<div style="clear:both;"></div>
+			<div class="MiddleBackground">
+				<div class="container-fluid">
+					<section class="row container" style="margin-left:auto;margin-right:auto;">
+						<div class="MainContentBody1Col pull-left" style="">
+							<div id="ContentPane">{{content}}</div>
+						</div>
+					</section>
+				</div>
+			</div>
     </div>
+		<div style="clear:both;"></div>
+		<div class="BottomBackground">
+  				<div class="container-fluid">
+
+  					<div class="row container" style="margin-left:auto;margin-right:auto;">
+  					  <div class="col-xs-12 col-sm-6 .col-sm-offset-1 col-md-3 col-lg-3 pull-left">
+  						  <div class="PedsMegaMenuTitle">Internal Links</div>
+  						  <a class="PedsMegaMenuLink" href="https://mail.wusm-pcf.wustl.edu/exchange" target="_blank">PCF Webmail</a><br />
+  						  <div class="PedsMegaMenuLink">Citrix <a class="PedsMegaMenuLink" href="https://wii.pcf.wustl.edu/Citrix/AccessPlatform/auth/silentDetection.aspx">PC</a>/<a class="PedsMegaMenuLink" href="https://wii.pcf.wustl.edu/Citrix/Mac/auth/silentDetection.aspx">MAC</a></div>
+  						  <a class="PedsMegaMenuLink" href="http://hr.wustl.edu" target="_blank">HRMS</a><br />
+  						  <a class="PedsMegaMenuLink" href="https://pedsportal.pcf.wustl.edu" target="_blank">Pediatric Intranet</a><br />
+  						  <a class="PedsMegaMenuLink" href="http://ofd.peds.wustl.edu" target="_blank">Office of Faculty Development</a><br />
+  						 <dnn:LOGIN id="dnnLogin" runat="server" cssclass="PedsMegaMenuLink" legacymode="false" />
+  					  </div>
+  					  <div class="col-xs-12 col-sm-6 .col-sm-offset-1 col-md-3 col-lg-3 pull-left">
+  						  <div class="PedsMegaMenuTitle">Affiliates</div>
+  						  <a class="PedsMegaMenuLink" href="http://www.stlouischildrens.org" target="_blank">St. Louis Children’s Hospital</a><br />
+  						  <a class="PedsMegaMenuLink" href="http://www.barnesjewish.org" target="_blank">Barnes-Jewish Hospital</a><br />
+  						  <a class="PedsMegaMenuLink" href="http://www.bjc.org" target="_blank">BJC Healthcare</a><br />
+  						  <a class="PedsMegaMenuLink" href="http://www.childrensdiscovery.org" target="_blank">Children’s Discovery Institute</a><br />
+  					  </div>
+  					  <div class="col-xs-12 col-sm-6 .col-sm-offset-1 col-md-3 col-lg-3 pull-right">
+  						  <div class="PedsMegaMenuTitle">Contact Us</div>
+  						  <a class="PedsMegaMenuLink" href="mailto:webmaster@kids.wustl.edu?subject=Question From Peds Website">webmaster@kids.wustl.edu</a><br />
+  						  <div class="PedsMegaMenuLink">Follow Us:&nbsp;<a class="IconHover" href="https://www.facebook.com/WUSTLPeds" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MMFacebookIcon.png" style="" /></a>&nbsp;<a class="IconHover" href="https://twitter.com/WUSTLPeds" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MMTwitterIcon.png" style="" /></a>&nbsp;<a class="IconHover" href="https://www.youtube.com/user/WUSTLPeds" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MMYouTubeIcon.png" style="" /></a></div>
+  						  <a class="PedsMegaMenuLink" href="http://wuphysicians.wustl.edu/directory.aspx" target="_blank">Find a Physician</a><br />
+  						  <a class="PedsMegaMenuLink" href="http://medicalalumni.wustl.edu/give/how-to-give" target="_blank">Make a Gift</a><br />
+  					  </div>
+  					  <div class="col-xs-12 col-sm-6 .col-sm-offset-1 col-md-3 col-lg-3 pull-right">
+  						  <div class="PedsMegaMenuTitle">IT Services</div>
+  						  <a class="PedsMegaMenuLink" href="/pcf/Home">PCF Home</a><br />
+  						  <a class="PedsMegaMenuLink" href="/clinicalinformatics">Clinical Informatics</a><br />
+  					  </div>
+  					</div>
+  				</div>
+
+  				<div style="clear:both;"></div>
+		<div class="Footer">
+  				<div class="container-fluid hidden-xs hidden-sm">
+  					<section class="row">
+  						<div class="container">
+  							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><div class="WhiteRue"></div>
+  								<a class="MMMedSchoolLogo" href="http://medicine.wustl.edu/" target="_blank"><img alt="" class="img-responsive" src="{{ site.baseurl }}/images/WUSLTMedLogo.png" /></a><br />
+  								<div class="MMMedSchooltext">Our 2,100 employed and volunteer faculty — the <a class="MMMedSchoollink" href="http://wuphysicians.wustl.edu/" target="_blank">Washington University Physicians</a> — also are the medical staff of <a class="MMMedSchoollink" href="http://www.barnesjewish.org/" target="_blank">Barnes-Jewish</a> and <a class="MMMedSchoollink" href="http://www.stlouischildrens.org/" target="_blank">St. Louis Children's hospitals.</a> Through its hospital affiliations, the School is linked to BJC HealthCare.<br /><br />
+  								<a class="MMMedSchoollink" href="http://www.wustl.edu/policies/copyright.html" target="_blank">&#169;&nbsp;2015 Washington Univeristy in St. Louis</a></div>
+  							</div>
+  							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"><div class="WhiteRue2"></div>
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/directory/academic-departments/" target="_blank">Departments & Programs</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/news/releases/" target="_blank">News</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://outlook.wustl.edu/" target="_blank">Outlook Magazine</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/maps/" target="_blank">Maps & Directions</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/calendar/" target="_blank">Calendar</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/contact/" target="_blank">Contact</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/directory/index/" target="_blank">A to Z Index</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="http://medicine.wustl.edu/policies/" target="_blank">Policies</a><br />
+  								<a class="WhiteMedSchMegaMenuLink" href="https://emergency.wustl.edu/" target="_blank">Emergency Information</a><br /><br />
+  							</div>
+  							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+  							<a class="IconHover" href="https://www.facebook.com/WUSTLmedicine.health" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolFBIcon.png" style="" /></a>&nbsp;&nbsp;<a class="IconHover" href="https://twitter.com/WUSTLmed" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolTIcon.png" style="" /></a>&nbsp;&nbsp;<a class="IconHover" href="https://www.linkedin.com/company/washington-university-school-of-medicine" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolINIcon.png" style="" /></a>&nbsp;&nbsp;<a class="IconHover" href="https://plus.google.com/+WashingtonUniversitySchoolofMedicineStLouis/videos" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolGIcon.png" style="" /></a>&nbsp;&nbsp;<a class="IconHover" href="http://feeds.feedburner.com/WUSTL-Medicine-News/" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolNewsIcon.png" style="" /></a>&nbsp;&nbsp;<a class="IconHover" href="http://reader.wustl.edu/" target="_blank"><img alt="" src="{{ site.baseurl }}/images/MedSchoolReadIcon.png" style="" /></a>
+  							<div class="WhiteRue3"></div>
+  							<a href="http://together.wustl.edu/Pages/Home.aspx" target="_blank"><img alt="" class="img-responsive" src="{{ site.baseurl }}/images/LeadingTogetherLogo.png" style="" /></a>
+  							<div class="WhiteRue3"></div>
+  							<div class="MMMedSchooltext">660 S. Euclid Ave.<br />St. Louis, MO 63110</div>
+  							</div>
+  						</div>
+  					</section>
+  				</div>
+  			</div>    </div>
 
 
-</body>
 
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<!--<script src="{{ site.baseurl }}/js/cbpAnimatedHeader.js"></script>
+	<script src="{{ site.baseurl }}/js/jquery.easing.1.3.js"></script>
+	<script src="{{ site.baseurl }}/js/scrolling.js"></script>-->
+
+  </body>
 </html>

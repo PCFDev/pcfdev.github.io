@@ -1,5 +1,6 @@
 # Site settings
 title: PCF Dev
+name: PCF Dev
 email: appdev@kids.wustl.edu
 description: > # this means to ignore newlines until "baseurl:"
   PCFDev is the site published by the Pediatric Computing Facilities Development
