@@ -5,3 +5,12 @@ layout: default
 <p class="meta">{{ page.date | date_to_string }}</p>
 
 {{ content }}
+
+
+{% for author in page.authors %}
+    <li style="font-size: {{ author | last | size | times: 100 | divided_by: site.authors.size | plus: 70 }}%">
+        <a href="/{{ author | first | slugize }}/">
+            {{ category | first }}
+        </a>
+    </li>
+{% endfor %}
