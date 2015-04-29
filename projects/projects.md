@@ -2,6 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
+group: menu
 ---
 Here are some of the projects we are wokring on:
 

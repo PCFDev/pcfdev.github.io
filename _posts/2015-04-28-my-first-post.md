@@ -2,7 +2,7 @@
 layout: post
 title: This first post
 author: ITLackey
-categories: blog update
+categories: ["blog update", "test"]
 ---
 #Hello World
 
